@@ -1,26 +1,25 @@
 import os
 import requests
 import subprocess
-import time
+import shlex
 
 print('\x1bc')
 
 ctr=0 ; progress='#';files=[]; path='/home'
 
-page='https://www.ipvanish.com/software/configs/'
+page='https://www.ipvanish.com/software/configs/configs.zip'
 
-req=requests.get(page)
+print("Checking Directories")
 
-for line in req.text.splitlines():
-
-	if "ipvanish" in line:
-		files.append(line.split("href=")[1].split('"')[1])
-
-directory_ = subprocess.check_output("find /home -type d -name 'IPVanish_Client'", shell = True)
+directory_=subprocess.check_output(shlex.split ('find /home -type d -name "IPVanish-Client"'), shell=False)
 
 directory = str(directory_).strip("b'").strip("\\n")
+configs=directory+"/configs"
 
-print("Client installed in: " + directory + "\n")
+if 'IPVanish-Client' in directory:
+	
+	print('Client found in: ' + directory)
+
 
 if 'configs' not in os.listdir(directory):
 	
@@ -28,17 +27,10 @@ if 'configs' not in os.listdir(directory):
 
 	os.mkdir (directory + "/configs")
 
-print("Downloading Config files")
+print("Downloading/Unzipping Config files")
 
-while ctr < 3: #len(files):
+subprocess.run(shlex.split('wget "'+page+'" -P '+directory+'/configs/'), shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
 
-	print('\x1bc');print("Downloading Config files: %",end='')
-	print(int(ctr/len(files)))
-	subprocess.check_call(['wget "'+page+files[ctr]+'" -P '+directory+'/configs/'])
-#	req=requests.get(page+files[ctr])
-#	open(directory+"/configs/"+files[ctr],'wb').write(req.content)
-	ctr +=1
+subprocess.run(shlex.split('unzip '+configs+'/configs.zip'+' -d '+configs), shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
 
-#while ctr < 3: # len(servers):
-#	print("\x3d")	
-#	ctr +=1
+subprocess.run(shlex.split('rm '+configs+'/configs.zip'))
