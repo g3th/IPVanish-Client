@@ -1,6 +1,6 @@
 # IPVanish-Client
 
-### IPVanish simple GUI for Kali Linux/Debian
+### IPVanish simple GUI for Linux/Debian
 
 Requirements:
 
