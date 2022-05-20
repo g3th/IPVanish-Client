@@ -8,9 +8,9 @@ print("\x1bc")
 
 setup = config.dlconfigs()
 
-setup.check_dirs()
-
 print('Checking Directories...\n')
+
+setup.check_dirs()
 
 setup.create_dirs()
 
