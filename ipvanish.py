@@ -3,6 +3,7 @@ import requests
 import subprocess
 import shlex
 import modules.dlconfig as config
+import modules.userpass as credentials
 
 print("\x1bc")
 
@@ -19,4 +20,6 @@ if setup.create_dirs()[2] == 1:
 	print('Client found in: '+ setup.create_dirs()[1])
 
 setup.subprocess()
+
+credentials.userPass()
 
