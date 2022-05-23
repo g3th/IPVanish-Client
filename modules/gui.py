@@ -1,40 +1,77 @@
 from tkinter import *
+from tkinter import ttk
 import servers
 
 
+def getElement(event):
+  
+  selection = event.widget.curselection()
+  index = selection[0]
+  value = event.widget.get(index)
+  result.set(value)
+  print(index,' -> ',value)
+
+#Main
+
+ipvanish = Tk()
+ipvanish.resizable(False,False)
+ipvanish.geometry('340x600')
+ipvanish.title('Ipvanish Client')
+
+#Style
+
+style = ttk.Style(ipvanish)
+style.configure('TNotebook',height=50)
+
+result = StringVar()
+
+#Tabs
+
+tab_parent = ttk.Notebook(ipvanish, style = 'TNotebook')
+
+#Logo Image
+
+image = PhotoImage(file=('ipvanish-text-logo-white.png'))
+canvas = Canvas(ipvanish, width=350,height=80)
+canvas.create_image(5, 5, anchor=NW, image=image)
+canvas.place(x=8,y=20)
+
+#Tab One
+
+tab_one = ttk.Frame(tab_parent, style = 'TNotebook')
+tab_parent.add ( tab_one, text = 'Choose a Country:' )
 
 
-gui = Tk()
-gui.resizable(False, False)
-gui.title('IPVanish Client')
-gui.geometry('320x500')
+#List in Tab One
 
-img = PhotoImage (file = 'ipvanish-text-logo-white.png')
-canvas = Canvas (gui, width = 320, height = 500 ) #image size
-canvas.create_image(5, 5, anchor = NW, image = img)
-canvas.pack()
+nations = StringVar(value = servers.nations())
+lnations = Listbox ( tab_one, listvariable = nations, height = 18)
+lnations.grid ( column = 3, row = 3 , sticky = 'n')
+lnations.place ( x=60, y=20)
 
-nvariable = StringVar(gui)
-nvariable.set(servers.nations()[0])
+#Tab Two
 
-cvariable = StringVar(gui)
-cvariable.set('')
+tab_two = ttk.Frame(tab_parent)
+tab_parent.add ( tab_two, text = 'Choose a City:' )
 
+#List in Tab Two
 
-Nlabel= Label (gui, text='Choose Country', font=('Helvetica',18))
-Nlabel.place(x=52,y=80)
-nations = OptionMenu(gui, nvariable, *servers.nations())
-nations.place(x=52,y=120)
-nations.config(width=20)
+cities = StringVar ( value = servers.cities() )
+lcities = Listbox ( tab_two, listvariable = cities, height = 18)
+lcities.grid ( column = 3, row = 3 , sticky = 'nsew')
+lcities.place ( x=60, y=20)
+lcities.bind('<Double-1>', something.getElement)
 
-servers.nations()[nvariable.get()]
+#Show Tabs
 
-Clabel= Label (gui, text='Choose City', font=('Helvetica',18))
-Clabel.place(x=52,y=180)
-cities = OptionMenu(gui, cvariable, '')
-cities.place(x=52,y=210)
-cities.config(width=20)
+tab_parent.pack ( expand = True, fill = 'both', padx=30, pady=100)
+
+#Connect Button
+
+connect = Button(ipvanish, text='Connect')
+connect.place(x=125,y=520)
 
 
-gui.mainloop()
+#Main Loop
 
+ipvanish.mainloop()
