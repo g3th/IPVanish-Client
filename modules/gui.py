@@ -60,7 +60,7 @@ cities = StringVar ( value = servers.cities() )
 lcities = Listbox ( tab_two, listvariable = cities, height = 18)
 lcities.grid ( column = 3, row = 3 , sticky = 'nsew')
 lcities.place ( x=60, y=20)
-lcities.bind('<Double-1>', something.getElement)
+lcities.bind('<Double-1>', getElement)
 
 #Show Tabs
 
