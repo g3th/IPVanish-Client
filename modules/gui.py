@@ -10,6 +10,9 @@ import dlconfig as config
 import random
 
 setup = config.dlconfigs()
+creds = open(setup.create_dirs()[0]+"credentials",'r')
+
+print(creds.readlines()[0])
 
 #Main
 
@@ -79,14 +82,19 @@ def connectionScript():
 		filelist.append(i)
 
 	filelist = sorted(filelist); length = len(filelist)
-	random_server_dir = filelist[random.randint(0,length-1)]
+	random_server_dir = filelist[random.randint(1,length)]
 	random_server = str(os.path.basename(random_server_dir)).strip(".ovpn")
 
 	print('Connecting to Random '+ city_selection +' server' )
 
 	subprocess.run( shlex.split ('nmcli connection import type openvpn file '+ random_server_dir), shell=False )
+	
 	subprocess.run( shlex.split ("sed -i 's:auth-user-pass:auth-user-pass " + setup.create_dirs()[0] + "credentials:g' " + random_server_dir ) , shell = False)
-
+	
+	subprocess.run( shlex.split ('nmcli connection modify '+ random_server +' vpn.user-name ='+ creds.readlines()[0]),shell = False)
+	
+	subprocess.run( shlex.split ('nmcli connection modify '+ random_server + 'vpn.secrets password='+ creds.readlines()[1]), shell = False)
+	
 	subprocess.run( shlex.split ('nmcli connection up ' + random_server), shell=False)
 
 #Connect Button
