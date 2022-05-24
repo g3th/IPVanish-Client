@@ -58,4 +58,3 @@ class dlconfigs():
 		else:
 			print("\nConfiguration files already exist\n")
 
-		return cdir

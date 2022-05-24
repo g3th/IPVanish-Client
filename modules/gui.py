@@ -1,15 +1,15 @@
 from tkinter import *
 from tkinter import ttk
+
+import os
+import subprocess
+import shlex
 import servers
+import glob
+import dlconfig as config
+import random
 
-
-def getElement(event):
-  
-  selection = event.widget.curselection()
-  index = selection[0]
-  value = event.widget.get(index)
-  result.set(value)
-  print(index,' -> ',value)
+setup = config.dlconfigs()
 
 #Main
 
@@ -60,15 +60,37 @@ cities = StringVar ( value = servers.cities() )
 lcities = Listbox ( tab_two, listvariable = cities, height = 18)
 lcities.grid ( column = 3, row = 3 , sticky = 'nsew')
 lcities.place ( x=60, y=20)
-lcities.bind('<Double-1>', getElement)
 
 #Show Tabs
 
 tab_parent.pack ( expand = True, fill = 'both', padx=30, pady=100)
 
-#Connect Button
+def connectionScript():
 
-connect = Button(ipvanish, text='Connect')
+	selection1 = lnations.curselection()		
+	selection2 = str(lcities.curselection()).split("(")[1].strip(",)")
+	city_selection = servers.cities()[int(selection2)]
+		
+	print(selection2)
+
+	filelist=[]
+
+	for i in glob.glob(str(setup.create_dirs()[0])+"*"+city_selection+"*"):
+		filelist.append(i)
+
+	filelist = sorted(filelist); length = len(filelist)
+	random_server_dir = filelist[random.randint(0,length-1)]
+	random_server = str(os.path.basename(random_server_dir)).strip(".ovpn")
+
+	print('Connecting to Random '+ city_selection +' server' )
+
+	subprocess.run( shlex.split ('nmcli connection import type openvpn file '+ random_server_dir), shell=False )
+	subprocess.run( shlex.split ("sed -i 's:auth-user-pass:auth-user-pass " + setup.create_dirs()[0] + "credentials:g' " + random_server_dir ) , shell = False)
+
+	subprocess.run( shlex.split ('nmcli connection up ' + random_server), shell=False)
+
+#Connect Button
+connect = Button ( ipvanish, text='Connect', command = connectionScript )
 connect.place(x=125,y=520)
 
 
