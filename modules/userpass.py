@@ -1,10 +1,15 @@
 import os
 import subprocess
 import shlex
+import modules.dlconfig as config
+
+setup = config.dlconfigs()
+
+
 
 def userPass():
 
-	if 'credentials' in os.listdir('configs'):
+	if 'credentials' in os.listdir(setup.create_dirs()[0]):
 
 		print('Credentials exist\n')
 		repeat='';password=''

@@ -51,7 +51,7 @@ tab_parent = ttk.Notebook(ipvanish, style = 'TNotebook')
 
 #Logo Image
 
-image = PhotoImage(file=('assets/ipvanish-text-logo-white.png'))
+image = PhotoImage(file=(setup.create_dirs()[1]+'/assets/ipvanish-text-logo-white.png'))
 canvas = Canvas(ipvanish, width=350,height=80)
 canvas.create_image(5, 5, anchor=NW, image=image)
 canvas.place(x=8,y=20)
@@ -104,7 +104,7 @@ def connectionScript():
 
 	print('Connecting to Random '+ city_selection +' server\n' )
 
-	subprocess.run( shlex.split ('nmcli connection import type openvpn file '+ random_server_dir), shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT )
+	subprocess.run( shlex.split ('nmcli connection import type openvpn file '+ random_server_dir), shell=False, stdout=subprocess.DEVNULL )
 
 	with open(setup.create_dirs()[0]+"credentials", 'r') as creds:
 
