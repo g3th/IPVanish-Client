@@ -27,12 +27,20 @@ I don't have that problem, I share nothing and live in a cave, and I wrote this 
 ----------------------------------------------------------------------------------------------------
 
 
-Requirements: None, all packages are standard library.
+Requirements: 
 
-Works through nmcli, so Network Manager must be enabled, i.e.:
+**OpenVPN, i.e. (if not root):**
+
+``` sudo -i ```
+
+``` apt-get install openvpn```
+
+**Works through nmcli, so Network Manager must be enabled, i.e.:**
 
 ```systemctl start NetworkManager```
 ```systemctl enable NetworkManager```
+
+All packages are standard library.
 
 Works with 'subprocess' but risk of injection has been minimized with 'Shlex' parser and 'Shell=False'.
 
