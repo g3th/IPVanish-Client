@@ -56,12 +56,21 @@ def sortList():
 	sort.close()
 
 		
-def filelists(path):
+def pfiles():
+
+	path=''
 
 	filelist=[]
 
-	for i in glob.glob(path):
+	city = input("City: ")
+	print(city)
+
+	for i in glob.glob(path+"*"+str(city)+"*"):
 		filelist.append(i)
 
 	filelist = sorted(filelist)
+
 	print(*filelist,sep="\n")
+
+
+

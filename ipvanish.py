@@ -1,5 +1,4 @@
 import os
-import requests
 import subprocess
 import shlex
 import modules.dlconfig as config
