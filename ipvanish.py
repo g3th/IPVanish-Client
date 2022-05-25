@@ -111,11 +111,11 @@ def connectionScript():
 			data.append(lines)
 	creds.close()
 
-	subprocess.run( shlex.split ("nmcli connection modify "+ random_server +" vpn.user-name "+ str(data[0]).strip("\n")),shell = False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+	subprocess.run( shlex.split ("nmcli connection modify "+ random_server +" vpn.user-name "+ str(data[0]).strip("\n")),shell = False, stdout=subprocess.DEVNULL)
 	
-	subprocess.run(shlex.split ('nmcli connection modify '+ random_server +' vpn.secrets password='+ data[1]), shell = False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+	subprocess.run(shlex.split ('nmcli connection modify '+ random_server +' vpn.secrets password='+ data[1]), shell = False, stdout=subprocess.DEVNULL)
 	
-	subprocess.run( shlex.split ('nmcli connection up ' + random_server), shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+	subprocess.run( shlex.split ('nmcli connection up ' + random_server), shell=False, stdout=subprocess.DEVNULL)
 	
 	print("Connected to "+city_selection)
 
