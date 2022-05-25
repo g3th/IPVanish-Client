@@ -2,19 +2,18 @@
 
 ### IPVanish simple GUI for Linux/Debian
 
-Connecting to IPVanish is normally quite annoying in Debian. It requires manually adding a connection, loading the file, and entering the password. This is for **every single server** you want to connect to.
+Connecting to IPVanish is normally quite annoying in Debian/Linux. It requires manually adding a connection, loading the file, and entering the password. This is for **every single server** you want to connect to.
 
 This GUI somewhat simplifies the process. 
 
 Launch the script and it will do various things:
 
-1) Check if you have a '/Config/' folder where ipvanish open-vpn configuration files are stored.
-
-2) Check if that folder is populated
-
-3) If you have no config files it will download them for you, after having created the appropriate folder.
-
-4) Will prompt for user-name and password, with 'echo-off'.
+```
+- Check if you have a '/Config/' folder where Ipvanish open-vpn configuration files are stored.
+- Check if that folder is populated
+- If you have no config files it will download them for you, after having created the appropriate folder.
+- Will prompt for user-name and password, with 'echo-off'. 
+```
 
 The GUI is then launched, and a connection is chosen. In the current version, it is only possible to select 'Cities'.
 
@@ -22,7 +21,7 @@ Unfortunately the credentials is a text file stored in '/configs'/.
 
 That might change in the future. I see no real problem, unless you are on a shared-terminal or in an office. 
 
-I don't have that problem, I share nothing and live in a cave.
+I don't have that problem, I share nothing and live in a cave, and I wrote this for myself after all.
 
 
 ----------------------------------------------------------------------------------------------------
