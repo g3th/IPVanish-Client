@@ -100,11 +100,9 @@ def connectionScript():
 	random_server_dir = filelist[randint(0,length)]
 	random_server = str(os.path.basename(random_server_dir)).strip(".ovpn")
 
-	
-	print(random_server)
-	print('Connecting to Random '+ city_selection +' server' )
+	print('Connecting to Random '+ city_selection +' server\n' )
 
-	subprocess.run( shlex.split ('nmcli connection import type openvpn file '+ random_server_dir), shell=False )
+	subprocess.run( shlex.split ('nmcli connection import type openvpn file '+ random_server_dir), shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT )
 
 	with open(setup.create_dirs()[0]+"credentials", 'r') as creds:
 
@@ -113,11 +111,13 @@ def connectionScript():
 			data.append(lines)
 	creds.close()
 
-	subprocess.run( shlex.split ("nmcli connection modify "+ random_server +" vpn.user-name "+ str(data[0]).strip("\n")),shell = False)
+	subprocess.run( shlex.split ("nmcli connection modify "+ random_server +" vpn.user-name "+ str(data[0]).strip("\n")),shell = False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
 	
-	subprocess.run(shlex.split ('nmcli connection modify '+ random_server +' vpn.secrets password='+ data[1]), shell = False)
+	subprocess.run(shlex.split ('nmcli connection modify '+ random_server +' vpn.secrets password='+ data[1]), shell = False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
 	
-	subprocess.run( shlex.split ('nmcli connection up ' + random_server), shell=False)
+	subprocess.run( shlex.split ('nmcli connection up ' + random_server), shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+	
+	print("Connected to "+city_selection)
 
 #Connect Button
 
