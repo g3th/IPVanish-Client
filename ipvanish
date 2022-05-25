@@ -31,6 +31,8 @@ setup.subprocess()
 
 credentials.userPass()
 
+print("\x1bc")
+
 #Main
 
 ipvanish = Tk()

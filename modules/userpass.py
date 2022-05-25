@@ -5,8 +5,6 @@ import modules.dlconfig as config
 
 setup = config.dlconfigs()
 
-
-
 def userPass():
 
 	if 'credentials' in os.listdir(setup.create_dirs()[0]):
@@ -29,7 +27,7 @@ def userPass():
 
 			if password == repeat:
 
-				with open('configs/credentials','a') as credentials:
+				with open(setup.create_dirs()[0]+'/credentials','a') as credentials:
 
 					credentials.write(email+"\n")
 					credentials.write(password)
