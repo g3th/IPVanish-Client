@@ -30,6 +30,7 @@ I don't have that problem: I share nothing and live in a cave, and I wrote this 
 ```cp ~/Desktop/IPVanish-Client/ipvanish.py ~/Desktop/IPVanish-Client/ipvanish && rm ~/Desktop/IPVanish-Client/ipvanish.py```
 
 ```chmod +rwx ~/Desktop/IPVanish-Client/ipvanish```
+
 ```sudo mousepad ~/.bashrc (or zsh)```
 
 **add this at the bottom of the file:**
@@ -39,6 +40,8 @@ I don't have that problem: I share nothing and live in a cave, and I wrote this 
 **now you can launch from terminal with:**
 
 ```ipvanish```
+
+---------------------------------------------------------------------------------------------------
 
 Requirements: 
 
