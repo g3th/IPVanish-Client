@@ -21,7 +21,7 @@ Unfortunately the credentials is a text file stored in '/configs'/.
 
 That might change in the future. I see no real problem, unless you are on a shared-terminal or in an office. 
 
-I don't have that problem, I share nothing and live in a cave.
+I don't have that problem, I share nothing and live in a cave, and I wrote this for myself after all.
 
 
 ----------------------------------------------------------------------------------------------------
