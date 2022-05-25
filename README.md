@@ -9,7 +9,7 @@ This GUI somewhat simplifies the process.
 Launch the script and it will do various things:
 
 ```
-- Check if you have a '/Config/' folder where ipvanish open-vpn configuration files are stored.
+- Check if you have a '/Config/' folder where Ipvanish open-vpn configuration files are stored.
 - Check if that folder is populated
 - If you have no config files it will download them for you, after having created the appropriate folder.
 - Will prompt for user-name and password, with 'echo-off'. 
