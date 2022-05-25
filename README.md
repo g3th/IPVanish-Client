@@ -44,4 +44,4 @@ All packages are standard library.
 
 Works with ```subprocess``` but risk of injection has been minimized with ```shlex``` parser and ```Shell=False```.
 
-Passwords are not outputted to terminal thanks to ```stdout=subprocess.DEVNULL``` and redirecting output to the linux toilet.
+Passwords are not outputted to terminal thanks to ```stdout=subprocess.DEVNULL``` and redirecting output to the linux toilet (they might be stored elsewhere in memory).
