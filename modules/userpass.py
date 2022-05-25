@@ -41,4 +41,4 @@ def userPass():
 				print('Does not match')
 
 
-		subprocess.run(shlex.split('stty echo'))
+		subprocess.run(shlex.split('stty echo'),shell=False)
