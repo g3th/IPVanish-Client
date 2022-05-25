@@ -6,37 +6,36 @@ def userPass():
 
 	if 'credentials' in os.listdir('configs'):
 
-		print('Credentials exist, quitting\n')
+		print('Credentials exist\n')
 		repeat='';password=''
-
-		exit()
+	else:
 	
-	command = shlex.split('stty -echo')
+		command = shlex.split('stty -echo')
 
-	email = input('Credentials - email:')
+		email = input('Credentials - email:')
 
-	while True:
+		while True:
 
-		subprocess.run(command)
+			subprocess.run(command)
 
-		password = input ('\n(echo off) Credentials - password: ')
+			password = input ('\n(echo off) Credentials - password: ')
 
-		repeat = input ('\nRepeat - password: ')
+			repeat = input ('\nRepeat - password: ')
 
-		if password == repeat:
+			if password == repeat:
 
-			with open('configs/credentials','a') as credentials:
+				with open('configs/credentials','a') as credentials:
 
-				credentials.write(email+"\n")
-				credentials.write(password)
-			repeat='';password=''
-			credentials.close()
+					credentials.write(email+"\n")
+					credentials.write(password)
+				repeat='';password=''
+				credentials.close()
 
-			break
+				break
 		
-		else:
+			else:
 
-			print('Does not match')
+				print('Does not match')
 
 
-	subprocess.run(shlex.split('stty echo'))
+		subprocess.run(shlex.split('stty echo'))
