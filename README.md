@@ -2,7 +2,7 @@
 
 ### IPVanish simple GUI for Linux/Debian
 
-Connecting to IPVanish is normally quite annoying in Debian. It requires manually adding a connection, loading the file, and entering the password. This is for **every single server** you want to connect to.
+Connecting to IPVanish is normally quite annoying in Debian/Linux. It requires manually adding a connection, loading the file, and entering the password. This is for **every single server** you want to connect to.
 
 This GUI somewhat simplifies the process. 
 
