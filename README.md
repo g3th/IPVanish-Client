@@ -32,6 +32,7 @@ Requirements: None, all packages are standard library.
 Works through nmcli, so Network Manager must be enabled, i.e.:
 
 ```systemctl start NetworkManager```
+```systemctl enable NetworkManager```
 
 Works with 'subprocess' but risk of injection has been minimized with 'Shlex' parser and 'Shell=False'.
 
