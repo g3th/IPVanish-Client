@@ -15,13 +15,24 @@ Launch the script and it will do various things:
 - Will prompt for user-name and password, with 'echo-off'. 
 ```
 
-The GUI is then launched, and a connection is chosen. In the current version, it is only possible to select 'Cities'.
+The GUI is then launched, and a connection is chosen. ~~In the current version, it is only possible to select 'Cities'~~
 
 Unfortunately the credentials is a text file stored in '/configs'/. 
 
 That might change in the future. I see no real problem, unless you are on a shared-terminal or in an office. 
 
 I don't have that problem: I share nothing and live in a cave, and I wrote this for myself after all.
+
+Where we are:
+
+Current version is fully functional and code is a bit more structured. There is still quite a lot to do:
+
+```
+- Disconnect and delete connection
+- Update buttons and label
+- Add settings tab
+- General GUI style
+```
 
 
 ----------------------------------------------------------------------------------------------------

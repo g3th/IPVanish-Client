@@ -3,8 +3,6 @@ import requests
 import subprocess
 import shlex
 
-
-
 class dlconfigs():
 	
 	def __init__(self):

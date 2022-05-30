@@ -9,7 +9,7 @@ def nationsPaths():
 	
 	nPath = ['IN', 'TW', 'KR', 'IL', 'JP', 'SG', 'TR', 'MY', 'AE', 'North America', 'MX', 'CA', 'US', 'CR', 'Europe', 'UK', 'DK', 'ES', 'RS', 'IS', 'PT', 'BE', 'NO', 'HU', 'BG', 'SI', 'GR', 'FR', 'SE', 'NL', 'PL', 'DE', 'IE', 'RO', 'CZ', 'CH', 'SK', 'HR', 'AT', 'IT', 'LU', 'AL', 'LV', 'FI', 'MD', 'South America', 'CO', 'CL', 'AR', 'PE', 'BR', 'Oceania', 'NZ', 'AU']
 	
-	return nationsPaths
+	return nPath
 
 def cities():
 	
@@ -17,11 +17,11 @@ def cities():
 
 	return cities
 
-def citiesPath():
+def citiesPaths():
 
-	citiesPath = ['New-Delhi', 'Mumbai', 'Taipei', 'Seoul', 'Tel-Aviv', 'Tokyo', 'Singapore', 'Istanbul', 'Kuala-Lumpur', 'Dubai','North-America', 'Guadalajara', 'Vancouver', 'Montreal', 'Toronto', 'Houston', 'New-Orleans', 'Charlotte', 'Atlanta', 'Ashburn', 'Boston', 'Dallas', 'Miami', 'Los-Angeles', 'Chicago', 'San-Jose', 'New-York', 'Seattle', 'Denver', 'Las-Vegas', 'Phoenix', 'Cincinnati', 'San-Jose','Costa-Rica', 'Manchester', 'London', 'Maidenhead', 'Glasgow', 'Birmingham', 'Copenhagen', 'Valencia', 'Madrid', 'Belgrade', 'Reykjavik', 'Lisbon', 'Brussels', 'Oslo', 'Budapest', 'Sofia', 'Ljubljana', 'Athens', 'Bordeaux', 'Paris', 'Marseille', 'Stockholm', 'Amsterdam', 'Warsaw', 'Frankfurt', 'Dublin', 'Bucharest', 'Prague', 'Zurich', 'Bratislava', 'Zagreb', 'Vienna', 'Milan', 'Luxembourg', 'Tirana', 'Riga', 'Helsinki', 'Chisinau','South-America', 'Bogota', 'Santiago', 'Buenos Aires', 'Lima', 'Sao-Paulo','Oceania', 'Auckland', 'Perth', 'Brisbane', 'Sydney', 'Adelaide', 'Melbourne']
+	cPath = ['New-Delhi', 'Mumbai', 'Taipei', 'Seoul', 'Tel-Aviv', 'Tokyo', 'Singapore', 'Istanbul', 'Kuala-Lumpur', 'Dubai','North-America', 'Guadalajara', 'Vancouver', 'Montreal', 'Toronto', 'Houston', 'New-Orleans', 'Charlotte', 'Atlanta', 'Ashburn', 'Boston', 'Dallas', 'Miami', 'Los-Angeles', 'Chicago', 'San-Jose', 'New-York', 'Seattle', 'Denver', 'Las-Vegas', 'Phoenix', 'Cincinnati', 'San-Jose','Costa-Rica', 'Manchester', 'London', 'Maidenhead', 'Glasgow', 'Birmingham', 'Copenhagen', 'Valencia', 'Madrid', 'Belgrade', 'Reykjavik', 'Lisbon', 'Brussels', 'Oslo', 'Budapest', 'Sofia', 'Ljubljana', 'Athens', 'Bordeaux', 'Paris', 'Marseille', 'Stockholm', 'Amsterdam', 'Warsaw', 'Frankfurt', 'Dublin', 'Bucharest', 'Prague', 'Zurich', 'Bratislava', 'Zagreb', 'Vienna', 'Milan', 'Luxembourg', 'Tirana', 'Riga', 'Helsinki', 'Chisinau','South-America', 'Bogota', 'Santiago', 'Buenos Aires', 'Lima', 'Sao-Paulo','Oceania', 'Auckland', 'Perth', 'Brisbane', 'Sydney', 'Adelaide', 'Melbourne']
 	
-	return citiesPath
+	return cPath
 
 
 #def cities():
