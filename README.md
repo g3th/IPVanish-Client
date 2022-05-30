@@ -23,18 +23,6 @@ That might change in the future. I see no real problem, unless you are on a shar
 
 I don't have that problem: I share nothing and live in a cave, and I wrote this for myself after all.
 
-Where we are:
-
-Current version is fully functional and code is a bit more structured. There is still quite a lot to do:
-
-```
-- Disconnect and delete connection
-- Update buttons and label
-- Add settings tab
-- General GUI style
-```
-
-
 ----------------------------------------------------------------------------------------------------
 **add to PATH, i.e.:**
 
@@ -72,3 +60,18 @@ All packages are standard library.
 Works with ```subprocess``` but risk of injection has been minimized with ```shlex``` parser and ```Shell=False```.
 
 Passwords are not outputted to terminal thanks to ```stdout=subprocess.DEVNULL``` and redirecting output to the linux toilet (they might be stored elsewhere in memory).
+
+---------------------------------------------------------------------------------------------------
+
+Where we are:
+
+Current version is fully functional and code is a bit more structured. There is still quite a lot to do:
+
+```
+- Disconnect and delete connection
+- Update buttons and label
+- Add settings tab
+- General GUI style
+```
+
+
