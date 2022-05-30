@@ -43,19 +43,19 @@ class tabLists:
 				nationCity = servers.nations()[int(selectionOne)]
 				selection = servers.nationsPaths()[int(selectionOne)]
 
-				print(nationCity); print(self.selection)
+				#print(nationCity); print(self.selection)
 
 			if self.selected == 1:
 				selectionTwo = str(self.lcities.curselection()).split("(")[1].strip(",)")
 				nationCity = servers.cities()[int(selectionTwo)]
 				selection = servers.citiesPaths()[int(selectionTwo)]
 
-				print(nationCity); print(selection)
+				#print(nationCity); print(selection)
 		except:
 			
 			print('Please Select Something')
 	
-		B.connectScript.connect(selection)
+		B.connectScript.connect(nationCity, selection)
 
 	def connectButton(self, text):
 

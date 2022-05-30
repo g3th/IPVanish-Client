@@ -35,7 +35,7 @@ class ipvanishGui():
 	def addStyles(self, widget, height):
 			
 		style=ttk.Style(self.ipvanish)
-		style.configure(style=widget, height=height, font = font)
+		style.configure(style=widget, height=height)
 		B.connectScript(self.ipvanish, 15, '- Not Connected -')
 
 	def mainLoop(self):

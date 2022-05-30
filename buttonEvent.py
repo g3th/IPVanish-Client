@@ -19,8 +19,8 @@ class connectScript:
 		self.label = Label( root, width = w, text = text, borderwidth = 10)
 		self.label.place(x=100,y=540)
 
-	def connect(city_selection):
-
+	def connect(info, city_selection):
+		print("\x1bc")
 		filelist=[]
 
 		for i in glob.glob(str(setup.create_dirs()[0])+"*"+city_selection+"*"):
@@ -30,7 +30,7 @@ class connectScript:
 		random_server_dir = filelist[randint(0,length)]
 		random_server = str(os.path.basename(random_server_dir)).strip(".ovpn")
 
-		print('Connecting to Random '+ city_selection +' server\n' )
+		print('Connecting to Random '+ info +' server\n' )
 
 		
 	
@@ -49,5 +49,5 @@ class connectScript:
 	
 		subprocess.run( shlex.split ('nmcli connection up ' + random_server), shell=False, stdout=subprocess.DEVNULL)
 	
-		print("Connected to "+city_selection)
+		print("Connected to "+ info)
 
