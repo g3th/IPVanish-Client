@@ -32,7 +32,7 @@ class ipvanishGui():
 		canvas.create_image(xpos, ypos, anchor=anchor, image=image)
 		canvas.place(x=xplace,y=yplace)
 
-	def addStyles(self, widget, height, font):
+	def addStyles(self, widget, height):
 			
 		style=ttk.Style(self.ipvanish)
 		style.configure(style=widget, height=height, font = font)
