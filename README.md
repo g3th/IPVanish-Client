@@ -2,6 +2,8 @@
 
 ### IPVanish simple GUI for Linux/Debian
 
+-----------------------------------------------------------------------
+
 ![Alt text](assets/Untitled.png "Ipvanish GUI running on Kali")
 
 Connecting to IPVanish is normally quite annoying in Debian/Linux. It requires manually adding a connection, loading the file, and entering the password. This is for **every single server** you want to connect to.
