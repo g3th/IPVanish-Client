@@ -2,57 +2,51 @@ import os
 import requests
 import subprocess
 import shlex
+from pathlib import Path
 
-class dlconfigs():
-	
-	def __init__(self):
-		
-		self.flag =  0
-		self.path = 'home'
-		self.page = 'https://www.ipvanish.com/software/configs/configs.zip'
-		self.find = shlex.split ('find /home -type d -name "IPVanish-Client"')
+page = 'https://www.ipvanish.com/software/configs/configs.zip'
+#find = shlex.split ('find /home -type d -name IPVanish-Client')
+
+#print("\x1bc")
 
 		
-	def check_dirs(self):
+def check_dirs():
 
-		directory_=subprocess.check_output(self.find, shell=False)
-
-		directory = str(directory_).strip("b'").strip("\\n")
-
-		return directory
-
-	def create_dirs(self):
-
-		dirs = dlconfigs.check_dirs(self)
-		configs = dirs + "/configs/"
-		
-		if 'IPVanish-Client' in dirs:
-
-			flag=1
-
-		return configs, dirs, flag
-
-	def subprocess(self):
-
-		cdir = dlconfigs.create_dirs(self)[0]
-		dir_ = dlconfigs.create_dirs(self)[1]
 	
+	directory = str(Path(__file__).parents[1])
+	return directory
 
-		if 'configs' not in os.listdir(dir_):
+def create_dirs():
+	flag=0
+	dirs = check_dirs()
+	configs = dirs + "/configs/"
+
+	if 'IPVanish-Client' in dirs:
+
+		flag=1
+
+	return configs, dirs, flag
+
+def scripts():
+
+	cdir = create_dirs()[0]
+	dir_ = create_dirs()[1]
+
+
+	if os.path.exists(cdir) == False :
+
+		print('Created "configs" directory \n')
+
+		os.mkdir (cdir)
 	
-			print('Created "configs" directory \n')
+	if len(os.listdir(cdir)) < 1:
 
-			os.mkdir (cdir)
-			
-		if len(os.listdir(cdir)) < 1:
+		print("Downloading/Unzipping Config files")
 
-			print("Downloading/Unzipping Config files")
+		subprocess.run(shlex.split('wget "'+page +'" -P ' + cdir), shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
 
-			subprocess.run(shlex.split('wget "'+self.page +'" -P ' + cdir), shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+		subprocess.run(shlex.split('unzip '+ cdir +'configs.zip'+' -d '+ cdir), shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
 
-			subprocess.run(shlex.split('unzip '+ cdir +'configs.zip'+' -d '+ cdir), shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-
-			subprocess.run(shlex.split('rm '+ cdir +'configs.zip'))
-		else:
-			print("\nConfiguration files already exist\n")
-
+		subprocess.run(shlex.split('rm '+ cdir +'configs.zip'))
+	else:
+		print("\nConfiguration files already exist\n")

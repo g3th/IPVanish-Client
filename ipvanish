@@ -11,8 +11,6 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
 
-setup = config.dlconfigs()
-
 class ipvanishGui():
 
 	def __init__(self, title):
@@ -25,8 +23,8 @@ class ipvanishGui():
 		tabs.tabLists.connectButton(self.ipvanish, text = '- Connect -')
 				
 	def image(self, xplace, yplace, xpos, ypos, width, height, anchor):
-
-		image = ImageTk.PhotoImage(file=setup.create_dirs()[1]+'/assets/ipvanish-text-logo-white.png')
+		
+		image = ImageTk.PhotoImage(file=config.create_dirs()[1]+'/assets/ipvanish-text-logo-white.png')
 		canvas = Canvas(self.ipvanish, width=width, height=height)
 		canvas.image = image
 		canvas.create_image(xpos, ypos, anchor=anchor, image=image)
@@ -43,7 +41,7 @@ class ipvanishGui():
 		self.ipvanish.mainloop()
 
 if __name__ == '__main__':
-
+	
 	preconfig.configuration()
 	Ipvanish = ipvanishGui('Ipvanish Gui')
 	Ipvanish.image(8, 20, 5, 5, 350, 80, NW)

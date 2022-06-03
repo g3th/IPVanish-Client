@@ -10,7 +10,7 @@ import tabs
 from tkinter import *
 from random import randint
 
-setup = config.dlconfigs(); data = []
+data = []
 
 class connectScript:
 
@@ -23,7 +23,7 @@ class connectScript:
 		print("\x1bc")
 		filelist=[]
 
-		for i in glob.glob(str(setup.create_dirs()[0])+"*"+city_selection+"*"):
+		for i in glob.glob(str(config.create_dirs()[0])+"*"+city_selection+"*"):
 			filelist.append(i)
 
 		filelist = sorted(filelist); length = len(filelist)-1
@@ -36,7 +36,7 @@ class connectScript:
 	
 		subprocess.run( shlex.split ('nmcli connection import type openvpn file '+ random_server_dir), shell=False, stdout=subprocess.DEVNULL )
 
-		with open(setup.create_dirs()[0]+"credentials", 'r') as creds:
+		with open(config.create_dirs()[0]+"credentials", 'r') as creds:
 
 			for lines in creds:
 

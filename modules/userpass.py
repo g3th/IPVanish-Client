@@ -3,11 +3,11 @@ import subprocess
 import shlex
 import modules.dlconfig as config
 
-setup = config.dlconfigs()
+
 
 def userPass():
 
-	if 'credentials' in os.listdir(setup.create_dirs()[0]):
+	if 'credentials' in os.listdir(config.create_dirs()[0]):
 
 		print('Credentials exist\n')
 		repeat='';password=''
@@ -27,7 +27,7 @@ def userPass():
 
 			if password == repeat:
 
-				with open(setup.create_dirs()[0]+'/credentials','a') as credentials:
+				with open(config.create_dirs()[0]+'/credentials','a') as credentials:
 
 					credentials.write(email+"\n")
 					credentials.write(password)

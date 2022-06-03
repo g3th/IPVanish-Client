@@ -2,7 +2,7 @@ import buttonEvent as B
 import modules.dlconfig as config
 import modules.userpass as credentials
 import modules.servers as servers
-import ctypes
+
 from tkinter import *
 from tkinter import ttk
 
