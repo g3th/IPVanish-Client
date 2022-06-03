@@ -5,14 +5,9 @@ import shlex
 from pathlib import Path
 
 page = 'https://www.ipvanish.com/software/configs/configs.zip'
-#find = shlex.split ('find /home -type d -name IPVanish-Client')
 
-#print("\x1bc")
-
-		
 def check_dirs():
 
-	
 	directory = str(Path(__file__).parents[1])
 	return directory
 
