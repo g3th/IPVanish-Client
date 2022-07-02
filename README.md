@@ -4,7 +4,7 @@
 
 -----------------------------------------------------------------------
 
-### 02/07/22 - On Kali Linux/Debian OpenVPN version 2.6.0 is still under 'Testing' status. If using this version the client (or anything using ovpn configurations) will not work (i.e. 'key' value not being understood, dbus failures etc..). It's recommended to use OpenVPN 2.5.1, or revert back by downloading the appropriate .deb package.
+##### 02/07/22 - On Kali Linux/Debian OpenVPN version 2.6.0 is still under 'Testing' status. If using this version the client (or anything using ovpn configurations) will not work (i.e. 'key' value not being understood, dbus failures etc..). It's recommended to use OpenVPN 2.5.1, or revert back by downloading the appropriate .deb package.
 
 ![Alt text](assets/Untitled.png "Ipvanish GUI running on Kali")
 
