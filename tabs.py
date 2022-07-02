@@ -17,6 +17,9 @@ class tabLists:
 
 		self.tab_two = ttk.Frame(self.notebook)
 		self.notebook.add(self.tab_two, text = 'Cities')
+		
+		#self.tab_three = ttk.Frame(self.notebook)
+		#self.notebook.add(self.tab_three, text = 'Settings')
 
 		nations = StringVar(value = servers.nations())
 		self.lnations = Listbox (self.tab_one, listvariable = nations, height = 18)	
@@ -34,8 +37,6 @@ class tabLists:
 
 		self.selected = self.notebook.index('current')
 
-		#print(self.selected)
-
 		try:
 
 			if self.selected == 0:
@@ -43,14 +44,11 @@ class tabLists:
 				nationCity = servers.nations()[int(selectionOne)]
 				selection = servers.nationsPaths()[int(selectionOne)]
 
-				#print(nationCity); print(self.selection)
-
 			if self.selected == 1:
 				selectionTwo = str(self.lcities.curselection()).split("(")[1].strip(",)")
 				nationCity = servers.cities()[int(selectionTwo)]
 				selection = servers.citiesPaths()[int(selectionTwo)]
 
-				#print(nationCity); print(selection)
 		except:
 			
 			print('Please Select Something')
