@@ -1,6 +1,5 @@
 import glob
 import os
-import shlex
 import subprocess
 import modules.dlconfig as config
 import modules.userpass as credentials
