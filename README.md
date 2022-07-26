@@ -63,8 +63,6 @@ Requirements:
 
 All packages are standard library.
 
-Works with ```subprocess``` but risk of injection has been minimized with ```shlex``` parser and ```Shell=False```.
-
 Passwords are not outputted to terminal thanks to ```stdout=subprocess.DEVNULL``` and redirecting output to the linux toilet (they might be stored elsewhere in memory).
 
 ---------------------------------------------------------------------------------------------------
@@ -73,11 +71,11 @@ Where we are:
 
 Current version is fully functional and code is a bit more structured. There is still quite a lot to do:
 
-```
-- ~~ Disconnect and delete connection ~~ 	(26/07/22)
-- ~~ Update buttons and label ~~			    (26/07/22)
+
+- ~~Disconnect and delete connection~~ 	(26/07/22)
+- ~~Update buttons and label~~		      (26/07/22)
 - Add settings tab
 - General GUI style
-```
+
 
 
