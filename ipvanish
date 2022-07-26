@@ -3,10 +3,9 @@
 import modules.dlconfig as config
 import modules.userpass as credentials
 import modules.servers as servers
-import tabs
 import preconfig
-import buttonEvent as B
 
+from tabs import tabLists
 from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
@@ -19,8 +18,6 @@ class ipvanishGui():
 		self.ipvanish.title(title)
 		self.ipvanish.resizable(False,False)
 		self.ipvanish.geometry('340x600')
-		#tabs.tabLists(self.ipvanish)
-		tabs.tabLists.connectButton(self.ipvanish, text = '- Connect -')
 				
 	def image(self, xplace, yplace, xpos, ypos, width, height, anchor):
 		
@@ -29,13 +26,15 @@ class ipvanishGui():
 		canvas.image = image
 		canvas.create_image(xpos, ypos, anchor=anchor, image=image)
 		canvas.place(x=xplace,y=yplace)
-
+		
 	def addStyles(self, widget, height):
 			
 		style=ttk.Style(self.ipvanish)
 		style.configure(style=widget, height=height)
-		B.connectScript(self.ipvanish, 15, '- Not Connected -')
-
+			
+	def vpn_connection(self):
+		tabs = tabLists(self.ipvanish)
+		tabs.place_buttons()
 	def mainLoop(self):
 
 		self.ipvanish.mainloop()
@@ -46,5 +45,5 @@ if __name__ == '__main__':
 	Ipvanish = ipvanishGui('Ipvanish Gui')
 	Ipvanish.image(8, 20, 5, 5, 350, 80, NW)
 	Ipvanish.addStyles('TNotebook', 50)
-	
+	Ipvanish.vpn_connection()	
 	Ipvanish.mainLoop()
