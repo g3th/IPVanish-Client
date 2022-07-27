@@ -75,7 +75,7 @@ Current version is fully functional and code is a bit more structured. There is 
 - ~~Disconnect and delete connection~~	(26/07/22)
 - ~~Update buttons and label~~			(26/07/22)
 - ~~Add Credentials tab~~				(26/07/22)
-- Add Ssettings tab
+- Add Settings tab
 - General GUI style
 
 
