@@ -72,9 +72,10 @@ Where we are:
 Current version is fully functional and code is a bit more structured. There is still quite a lot to do:
 
 - Fix the generic North America, Europe and South America choices
-- ~~Disconnect and delete connection~~ 	(26/07/22)
-- ~~Update buttons and label~~		      (26/07/22)
-- Add settings tab
+- ~~Disconnect and delete connection~~	(26/07/22)
+- ~~Update buttons and label~~			(26/07/22)
+- ~~Add Credentials tab~~				(26/07/22)
+- Add Ssettings tab
 - General GUI style
 
 
