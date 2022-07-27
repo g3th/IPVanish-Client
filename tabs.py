@@ -42,12 +42,10 @@ class tabLists:
 		self.button_label = Label(root, text = 'Not Connected')
 		self.connect_button = Button (root, text = 'Connect' , command = self.buttonEvent)
 		
-		self.user_name = Entry(self.tab_three)
-		self.password = Entry(self.tab_three,show='*')
 		self.store_credentials_button = Button(self.tab_three, text = 'Save Credentials', command =self.store_credentials)
 		self.store_credentials_button.place(x=66, y=151)
 		self.connect_button.place(x=133,y=515)
-		self.button_label.place(x=124,y=555)
+		self.button_label.place(x=121,y=555)
 		
 		if 'credentials' in os.listdir(self.file_path):
 			with open('credentials','r') as existing_credentials:
@@ -57,7 +55,9 @@ class tabLists:
 		else:			
 			self.entry_boxes()
 			
-	def entry_boxes(self):		
+	def entry_boxes(self):
+		self.user_name = Entry(self.tab_three)
+		self.password = Entry(self.tab_three,show='*')		
 		self.user_name_label = Label(self.tab_three, text = 'User Name: ')
 		self.password_label = Label(self.tab_three, text = 'Password: ')
 		self.user_name_label.place(x=55,y=35)
@@ -90,11 +90,11 @@ class tabLists:
 	def delete_credentials(self):
 		
 		os.remove('credentials')
+		self.entry_boxes()
 		self.store_credentials_button.config(text = 'Save Credentials', command =self.store_credentials)
 		self.displayed_user_name.destroy()
 		self.displayed_password.destroy()
-		self.entry_boxes()
-	
+		
 	def no_selection(self):
 		
 		nothing_selected_error = Toplevel(self.notebook)
@@ -165,4 +165,4 @@ class tabLists:
 		subprocess.run(delete_connection, shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 		self.connect_button.config(text='Connect', command = self.buttonEvent)
 		self.button_label['text']='Not Connected'
-		self.button_label.place(x=124,y=555)
+		self.button_label.place(x=121,y=555)
