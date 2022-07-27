@@ -8,6 +8,7 @@ import preconfig
 from tabs import tabLists
 from tkinter import *
 from tkinter import ttk
+from modules.dlconfig import configs_tab
 from PIL import Image, ImageTk
 
 class ipvanishGui():
@@ -35,9 +36,6 @@ class ipvanishGui():
 	def vpn_connection(self):
 		
 		tabs = tabLists(self.ipvanish)
-		
-
-		
 	
 	def mainLoop(self):
 

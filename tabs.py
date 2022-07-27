@@ -27,6 +27,8 @@ class tabLists:
 		self.tab_three = ttk.Frame(self.notebook)
 		self.notebook.add(self.tab_three, text = 'Credentials')
 		
+		config.configs_tab(root, self.notebook)
+				
 		nations = StringVar(value = servers.nations())
 		self.lnations = Listbox (self.tab_one, listvariable = nations, height = 18)	
 		self.lnations.grid ( column = 3, row = 3 , sticky = 'n')

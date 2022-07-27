@@ -3,12 +3,37 @@ import requests
 import subprocess
 import shlex
 from pathlib import Path
+from tkinter import *
+from tkinter import ttk
 
-page = 'https://www.ipvanish.com/software/configs/configs.zip'
 
+
+class configs_tab:
+	
+	def __init__(self, root, notebook):
+		self.directory = str(Path(__file__).parents[1])+'/configs'
+		self.download_link = 'https://www.ipvanish.com/software/configs/configs.zip'
+		self.tab_four = ttk.Frame(root)
+		notebook.add(self.tab_four, text = 'Configs')
+		self.progressbar = ttk.Progressbar(self.tab_four, orient = 'horizontal', mode = 'determinate', length = 150)
+		self.progressbar.place(height=25,width=200,x=40,y=40)
+		self.check_if_configs_exist()
+		
+	def check_if_configs_exist(self):
+		if len(os.listdir(self.directory)) > 1:
+			label_test = Label(self.tab_four, font=('Arial',15),text='Config Files Already Exist')
+			label_test.place(x=20,y=85)
+		else:
+			self.configs_button = Button(self.tab_four, text='Download Open-VPN Config Files',command=self.download_configs)
+			self.configs_button.place(x=20,y=180)
+			
+	def download_configs(self):
+		return 0
+		
+		
 def check_dirs():
-
 	directory = str(Path(__file__).parents[1])
+	
 	return directory
 
 def create_dirs():
