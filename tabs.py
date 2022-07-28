@@ -2,7 +2,6 @@ import glob
 import os
 import subprocess
 import modules.dlconfig as config
-import modules.userpass as credentials
 import modules.servers as servers
 from pathlib import Path
 from tkinter import *

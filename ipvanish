@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 
 import modules.dlconfig as config
-import modules.userpass as credentials
 import modules.servers as servers
-import preconfig
 
 from tabs import tabLists
+from pathlib import Path
 from tkinter import *
 from tkinter import ttk
 from modules.dlconfig import configs_tab
@@ -14,7 +13,7 @@ from PIL import Image, ImageTk
 class ipvanishGui():
 
 	def __init__(self, title):
-		
+		self.directory = str(Path(__file__).parent)
 		self.ipvanish = Tk()
 		self.ipvanish.title(title)
 		self.ipvanish.resizable(False,False)
@@ -22,7 +21,7 @@ class ipvanishGui():
 				
 	def image(self, xplace, yplace, xpos, ypos, width, height, anchor):
 		
-		image = ImageTk.PhotoImage(file=config.create_dirs()[1]+'/assets/ipvanish-text-logo-white.png')
+		image = ImageTk.PhotoImage(file=self.directory+'/assets/ipvanish-text-logo-white.png')
 		canvas = Canvas(self.ipvanish, width=width, height=height)
 		canvas.image = image
 		canvas.create_image(xpos, ypos, anchor=anchor, image=image)
@@ -43,7 +42,6 @@ class ipvanishGui():
 
 if __name__ == '__main__':
 	
-	preconfig.configuration()
 	Ipvanish = ipvanishGui('Ipvanish Gui')
 	Ipvanish.image(8, 20, 5, 5, 350, 80, NW)
 	Ipvanish.addStyles('TNotebook', 50)
