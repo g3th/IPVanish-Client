@@ -58,7 +58,6 @@ class configs_tab:
 		self.lock.acquire()
 		self.file_number +=1
 		self.progress_bar['value'] += 1
-		print(self.progress_bar['value'])
 		self.progress_bar_title.config(text = 'File {}/{}'.format(str(self.file_number),str(len(self.links_list))))
 		self.lock.release()
 				
