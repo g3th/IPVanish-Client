@@ -134,7 +134,6 @@ class tabLists:
 	def connect(self,info, city_selection):
 		data = []
 		filelist=[]
-		print(self.file_path+"/*"+city_selection)
 		for i in glob.glob(str(self.file_path + "/*" + city_selection+"*")):
 			filelist.append(i)
 		filelist = sorted(filelist); length = len(filelist)-1
