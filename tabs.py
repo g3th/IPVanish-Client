@@ -12,7 +12,7 @@ class tabLists:
 
 	def __init__(self, root, *args):
 	
-		self.file_path = str(Path(__file__).parent)
+		self.file_path = str(Path(__file__).parent)+'/configs'
 		self.credentials = []
 		
 		self.notebook = ttk.Notebook(root)
@@ -45,24 +45,24 @@ class tabLists:
 		self.store_credentials_button.place(x=66, y=151)
 		self.connect_button.place(x=133,y=515)
 		self.button_label.place(x=121,y=555)
-		
 		if 'credentials' in os.listdir(self.file_path):
-			with open('credentials','r') as existing_credentials:
+			with open(self.file_path+'/credentials','r') as existing_credentials:
 				for credential in existing_credentials.readlines():
-					self.credentials.append(credential)			
+					self.credentials.append(credential)
+			self.entry_boxes()
 			self.display_stored_credentials(self.credentials[0],self.credentials[1])
-		else:			
+		else:	
 			self.entry_boxes()
 			
 	def entry_boxes(self):
 		self.user_name = Entry(self.tab_three)
-		self.password = Entry(self.tab_three,show='*')		
+		self.password = Entry(self.tab_three, show='*')
 		self.user_name_label = Label(self.tab_three, text = 'User Name: ')
 		self.password_label = Label(self.tab_three, text = 'Password: ')
 		self.user_name_label.place(x=55,y=35)
-		self.user_name.place(x=55,y=60)	
-		self.password_label.place(x=55,y=88)			
-		self.password.place(x=55,y=115)
+		self.user_name.place(x=55,y=58)	
+		self.password_label.place(x=55,y=96)		
+		self.password.place(x=55,y=118)
 		
 		
 	def store_credentials(self):
@@ -71,24 +71,23 @@ class tabLists:
 			self.no_credentials()
 		else:
 			for credential in self.credentials:
-				with open('credentials', 'a') as write_creds:
+				with open(self.file_path+'/credentials', 'a') as write_creds:
 					write_creds.write(credential + "\n")
 				write_creds.close()
 			self.display_stored_credentials(self.credentials[0],self.credentials[1])
 			
 	def display_stored_credentials(self,user,password):
-	
 		self.store_credentials_button.config(text = 'Clear Credentials', command =self.delete_credentials)
 		self.displayed_user_name = Label(self.tab_three, text = user)
 		self.displayed_user_name.place(x=55,y=58)
 		self.displayed_password = Label(self.tab_three, text = '*'*(len(password)))
-		self.displayed_password.place(x=55,y=112)
+		self.displayed_password.place(x=55,y=118)
 		self.password.destroy()
 		self.user_name.destroy()
 		
 	def delete_credentials(self):
 		
-		os.remove('credentials')
+		os.remove(self.file_path +'/credentials')
 		self.entry_boxes()
 		self.store_credentials_button.config(text = 'Save Credentials', command =self.store_credentials)
 		self.displayed_user_name.destroy()
@@ -128,21 +127,20 @@ class tabLists:
 				self.button_label['text']='Connected to '+ selection +' server\n'
 				self.button_label.place(x=80,y=555)
 				
-			except:
-				self.no_selection()
-			
+			except Exception as e:
+				#self.no_selection()
+				print(e)
 	
 	def connect(self,info, city_selection):
 		data = []
 		filelist=[]
-	
-		for i in glob.glob(str(config.create_dirs()[0])+"*"+city_selection+"*"):
+		for i in glob.glob(str(self.file_path + "/*" + city_selection+"*")):
 			filelist.append(i)
 		filelist = sorted(filelist); length = len(filelist)-1
 		random_server_dir = filelist[randint(0,length)]
 		self.random_server = str(os.path.basename(random_server_dir)).strip(".ovpn")
 		
-		with open(config.create_dirs()[0]+"credentials", 'r') as creds:
+		with open(self.file_path+"/credentials", 'r') as creds:
 			for lines in creds:
 				data.append(lines)
 		creds.close()
