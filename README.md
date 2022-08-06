@@ -10,16 +10,9 @@ Connecting to IPVanish is normally quite annoying in Debian/Linux. It requires m
 
 This GUI somewhat simplifies the process. 
 
-Launch the script and it will do various things:
+By launching the GUI you will have the option to download the ovpn configurations, entering valid credentials, connecting and disconnecting to a server of your choice.
 
-```
-- Check if you have a '/Config/' folder where Ipvanish is located.
-- Check if that folder is populated
-- If you have no config files it will download them for you, after having created the appropriate folder.
-- Will prompt for user-name and password, with 'echo-off'. 
-```
-
-The GUI is then launched, and a connection is chosen. ~~In the current version, it is only possible to select 'Cities'~~
+It is up to you to enter valid credentials, as they are not checked by using authentication with an api endpoint.
 
 Unfortunately the credentials is a text file stored in '/configs'/. 
 
