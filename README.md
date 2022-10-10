@@ -52,6 +52,10 @@ Requirements:
 ```systemctl start NetworkManager```
 ```systemctl enable NetworkManager```
 
+**Network Manager Open-VPN plugin required, or will return error "Error: failed to load VPN plugin: unknown VPN plugin "org.freedesktop.NetworkManager.openvpn":**
+
+```sudo apt-get install network-manager-openvpn```
+
 All packages are standard library.
 
 Passwords are not outputted to terminal thanks to ```stdout=subprocess.DEVNULL``` and redirecting output to the linux toilet (they might be stored elsewhere in memory).
