@@ -58,8 +58,6 @@ Requirements:
 
 All packages are standard library.
 
-Passwords are not outputted to terminal thanks to ```stdout=subprocess.DEVNULL``` and redirecting output to the linux toilet (they might be stored elsewhere in memory).
-
 ---------------------------------------------------------------------------------------------------
 
 Where we are:
