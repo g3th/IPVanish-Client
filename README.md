@@ -77,6 +77,14 @@ Requirements:
 
 ```sudo apt-get install systemd-resolved```
 
+**Image TK Module**
+
+```sudo apt-get install python3-pil python3-pil.imagetk```
+
+**Tk Package**
+
+```sudo apt-get install python3-tk```
+
 All python packages are standard library.
 
 
