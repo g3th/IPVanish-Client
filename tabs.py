@@ -248,23 +248,24 @@ class TabsLists:
             if "Link" in i:
                 self.current_interface.append(i.split("(")[1].split(")")[0])
         for interface in self.current_interface:
-            disable_ipv6 = ['sudo',  '-S', 'sysctl', 'net.ipv6.conf.all.disable_ipv6=1']
-            set_default_route = ['sudo',  '-S', 'resolvectl', 'default-route', interface, 'false']
-            set_llmnr = ['sudo',  '-S', 'resolvectl', 'llmnr', interface, 'false']
-            set_mdns = ['sudo',  '-S', 'resolvectl', 'mdns', interface, 'false']
-            resolved_set_dns_command = ['sudo', '-S', 'resolvectl', 'dns', interface, self.ipvanish_dns[0], self.ipvanish_dns[1]]
-            subprocess.Popen(disable_ipv6, shell=False,
-                             encoding='utf-8').communicate(input=self.sudo_password)
+            if "tun0" not in interface:
+                disable_ipv6 = ['sudo',  '-S', 'sysctl', 'net.ipv6.conf.all.disable_ipv6=1']
+                set_default_route = ['sudo',  '-S', 'resolvectl', 'default-route', interface, 'false']
+                set_llmnr = ['sudo',  '-S', 'resolvectl', 'llmnr', interface, 'false']
+                set_mdns = ['sudo',  '-S', 'resolvectl', 'mdns', interface, 'false']
+                resolved_set_dns_command = ['sudo', '-S', 'resolvectl', 'dns', interface, self.ipvanish_dns[0], self.ipvanish_dns[1]]
+                subprocess.Popen(disable_ipv6, shell=False,
+                                 encoding='utf-8').communicate(input=self.sudo_password)
 
-            subprocess.Popen(resolved_set_dns_command, shell=False,
-                             encoding='utf-8').communicate(input=self.sudo_password)
+                subprocess.Popen(resolved_set_dns_command, shell=False,
+                                 encoding='utf-8').communicate(input=self.sudo_password)
 
-            subprocess.Popen(set_default_route, shell=False,
-                             encoding='utf-8').communicate(input=self.sudo_password)
+                subprocess.Popen(set_default_route, shell=False,
+                                 encoding='utf-8').communicate(input=self.sudo_password)
 
-            subprocess.Popen(set_llmnr, shell=False,
-                             encoding='utf-8').communicate(input=self.sudo_password)
+                subprocess.Popen(set_llmnr, shell=False,
+                                 encoding='utf-8').communicate(input=self.sudo_password)
 
-            subprocess.Popen(set_mdns, shell=False,
-                             encoding='utf-8').communicate(input=self.sudo_password)
+                subprocess.Popen(set_mdns, shell=False,
+                                 encoding='utf-8').communicate(input=self.sudo_password)
 
