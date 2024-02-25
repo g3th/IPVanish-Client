@@ -15,7 +15,7 @@ Since Tkinter was used, the interface is fairly simple and was only implemented 
 
 ### How to Connect 
 
-Start the app through a terminal, for instance, enter your credentials and your sudo password in the ```credentials``` tab, and store both.
+Start the app through a terminal, for instance ```python3 ipvanish.py```, and enter your credentials and your sudo password in the ```credentials``` tab, and store both.
 
 Pick a city or nation by clicking on a tab, and click on ```Connect```. 
 
