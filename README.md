@@ -29,7 +29,7 @@ You can then disconnect from your current connection and repeat the process.
 
 The app works by using the ```subprocess``` module to create an OpenVPN connection through terminal commands. 
 
-As such, it requires the user to acquire superuser privileges by entering and storing the system's sudo password in the ```Credentials``` tab. The password will need to be entered everytime the app starts, as the password is not stored.
+As such, it requires the user to acquire superuser privileges by entering and storing the system's sudo password in the ```Credentials``` tab. The password will need to be entered everytime the app starts, as it is not stored.
 
 The systemd-resolved service is then used to set dns and various other options. Again, this requires administrative privileges.
 
