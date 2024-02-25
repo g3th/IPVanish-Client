@@ -28,7 +28,7 @@ class IPVanishGUI():
         style.configure(style=widget, height=height)
 
     def vpn_connection(self):
-        tabs = TabsLists(self.IPVanish)
+        TabsLists(self.IPVanish)
 
     def mainloop(self):
         self.IPVanish.mainloop()
