@@ -8,17 +8,13 @@
 
 Connecting to IPVanish is normally quite annoying in Debian/Linux. It requires manually adding a connection, loading the file, and entering the password. This is for **every single server** you want to connect to.
 
-This GUI somewhat simplifies the process. 
+This GUI somewhat simplifies the process.
 
-By launching the GUI you will have the option to download the ovpn configurations, entering valid credentials, connecting and disconnecting to a server of your choice.
+It now opens an OpenVPN connection to connect to your chosen server. It's still being tested. You will need to enter your 'sudo' password upon launching the app, in order to be able to establish an openvpn connection.
 
-It is up to you to enter valid credentials, as they are not checked by using authentication with an api endpoint.
+The VPN interface should be named 'tun0'. 
 
-Unfortunately the credentials is a text file stored in '/configs'/. 
-
-That might change in the future. I see no real problem, unless you are on a shared-terminal or in an office. 
-
-I don't have that problem: I share nothing and live in a cave, and I wrote this for myself after all.
+Once launched, download ovpn configurations, entering valid credentials, connecting and disconnecting to a server of your choice.
 
 ----------------------------------------------------------------------------------------------------
 **add to PATH, i.e.:**
@@ -47,30 +43,8 @@ Requirements:
 
 ``` apt-get install openvpn```
 
-**Works through nmcli, so Network Manager must be enabled, i.e.:**
-
-```systemctl start NetworkManager```
-```systemctl enable NetworkManager```
-
-**Network Manager Open-VPN plugin required, or will return error "Error: failed to load VPN plugin: unknown VPN plugin "org.freedesktop.NetworkManager.openvpn":**
-
-```sudo apt-get install network-manager-openvpn```
-
 All packages are standard library.
 
----------------------------------------------------------------------------------------------------
-
-Where we are:
-
-Current version is fully functional and code is a bit more structured. There is still quite a lot to do:
-
-- Fix the generic North America, Europe and South America choices
-- ~~Disconnect and delete connection~~			(26/07/22)
-- ~~Update buttons and label~~					(26/07/22)
-- ~~Add Credentials tab~~						(26/07/22)
-- ~~Add Settings tab~~							(29/07/22)
-- ~~Add Configuration Downloading (Settings)~~	(29/07/22)
-- General GUI style
 
 
 
