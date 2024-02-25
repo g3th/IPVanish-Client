@@ -45,8 +45,6 @@ The VPN interface should be named 'tun0'.
 
 If problems occurr, it is likely due to these settings. Please raise an issue should this be the case.
 
-Once launched, download ovpn configurations, entering valid credentials, connecting and disconnecting to a server of your choice.
-
 ### Installation and Requirements
 
 **add to PATH, i.e.:**
