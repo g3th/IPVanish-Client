@@ -35,6 +35,8 @@ The systemd-resolved service is then used to set dns and various other options. 
 
 Finally, sysctl.conf will be accessed to set/unset variable ```net.ipv6.conf.all.disable_ipv6```.
 
+These steps have been taken in order to prevent dns requests from leaking. Visit ```dnscheck.tools``` to double-check.
+
 ### Note   
 
 OpenVPN and systemd-resolved should be installed on your linux system.
