@@ -69,13 +69,13 @@ Requirements:
 
 **OpenVPN, i.e. (if not root):**
 
-``` sudo -i ```
+``` sudo apt-get install openvpn```
 
-```apt-get install systemd-resolved```
+**Systemd-resolved**
 
-``` apt-get install openvpn```
+```sudo apt-get install systemd-resolved```
 
-All packages are standard library.
+All python packages are standard library.
 
 
 
