@@ -15,10 +15,10 @@ Since no linux client/app exists for IpVanish, currently, the only way to connec
 
 
 These connections have to be created and removed (SIGINT, since there is no other way) for every server in every location which the user wishes to use. Both servers and nations are plenty, and this results in being an extremely tedious process.
-Hence, this app was created, so that connecting in most linux distributions is much simpler.
+Hence, this app was created, so that connecting in most linux distributions is much easier.
 
 
-Since Tkinter was used, the interface is fairly simple and was only implemented to simplify the connection process (i.e. without any bells-and-whistles).
+Since Tkinter was used, the interface is fairly basic and was only implemented to simplify the connection process (i.e. without any bells-and-whistles).
 
 ### How to Connect 
 
