@@ -58,15 +58,19 @@ If problems occurr, it is likely due to these settings. Please raise an issue sh
 
 **add to PATH, i.e.:**
 
-```cp ~/Desktop/IPVanish-Client/ipvanish.py ~/Desktop/IPVanish-Client/ipvanish && rm ~/Desktop/IPVanish-Client/ipvanish.py```
+```mv ipvanish.py ipvanish```
 
-```chmod +rwx ~/Desktop/IPVanish-Client/ipvanish```
+```chmod +rwx ipvanish```
 
-```sudo mousepad ~/.bashrc (or zsh)```
+```sudo mousepad ~/.bashrc (zshrc, or your shell)```
 
-**add this at the bottom of the file:**
+**add:**
 
 ```export PATH=$PATH:~/Desktop/IPVanish-Client/```
+
+**terminal command:**
+
+```source ~/.bashrc (zshrc, or your shell)
 
 **now you can launch from terminal with:**
 
