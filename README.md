@@ -70,7 +70,7 @@ If problems occurr, it is likely due to these settings. Please raise an issue sh
 
 **terminal command:**
 
-```source ~/.bashrc (zshrc, or your shell)
+```source ~/.bashrc (zshrc, or your shell)```
 
 **now you can launch from terminal with:**
 
@@ -82,7 +82,7 @@ Requirements:
 
 **OpenVPN, i.e. (if not root):**
 
-``` sudo apt-get install openvpn```
+```sudo apt-get install openvpn```
 
 **Systemd-resolved**
 
