@@ -30,7 +30,7 @@ Pick a city or nation by clicking on a tab, and click on ```Connect```.
 
 Wait a second, and a connection should be established.
 
-You can then click ```Disconnect``` to disconnect from your current connection (via SIG. 
+You can then click ```Disconnect``` to disconnect from your current connection.
 
 ### How it Works
 
