@@ -11,6 +11,13 @@
 Written in Python with Tkinter, this app will allow you to connect to a chosen IpVanish server in most linux distributions. 
 
 
+Since no linux client/app exists for IpVanish, currently, the only way to connect to a server is by downloading the ovpn configuration files, and connecting either through Network Manager or directly by setting up an OpenVPN connection.
+
+
+These connections have to be created and removed (SIGINT, since there is no other way) for every server in every location which the user wishes to use. Both servers and nations are plenty, and this results in being an extremely tedious process.
+Hence, this app was created, so that connectin in most linux distributions is much simpler.
+
+
 Since Tkinter was used, the interface is fairly simple and was only implemented to simplify the connection process (i.e. without any bells-and-whistles).
 
 ### How to Connect 
@@ -23,7 +30,7 @@ Pick a city or nation by clicking on a tab, and click on ```Connect```.
 
 Wait a second, and a connection should be established.
 
-You can then disconnect from your current connection. 
+You can then click ```Disconnect``` to disconnect from your current connection (via SIG. 
 
 ### How it Works
 
