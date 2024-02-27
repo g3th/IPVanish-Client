@@ -7,7 +7,7 @@ from tkinter import ttk
 from PIL import ImageTk
 
 
-class IPVanishGUI():
+class IPVanishGUI:
 
     def __init__(self, title):
         self.directory = str(Path(__file__).parent)
@@ -35,7 +35,7 @@ class IPVanishGUI():
 
 
 if __name__ == '__main__':
-    IPVanish = IPVanishGUI('IPVanish Gui')
+    IPVanish = IPVanishGUI('IPVanish Client')
     IPVanish.image(8, 20, 5, 5, 350, 80, NW)
     IPVanish.add_styles('TNotebook', 50)
     IPVanish.vpn_connection()

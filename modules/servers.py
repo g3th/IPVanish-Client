@@ -10,12 +10,17 @@ nations = ['India', 'Taiwan', 'South Korea', 'Israel',
            'Finland', 'Moldova', 'South America', 'Colombia', 'Chile', 'Argentina', 'Peru', 'Brazil',
            'Oceania', 'New Zealand', 'Australia']
 
-nations_as_tags = ['IN', 'TW', 'KR', 'IL', 'JP', 'SG', 'TR', 'MY', 'AE', 'North America',
-                   'MX', 'CA', 'US', 'CR', 'Europe', 'UK', 'DK', 'ES', 'RS', 'IS',
-                   'PT', 'BE', 'NO', 'HU', 'BG', 'SI', 'GR', 'FR', 'SE', 'NL', 'PL',
-                   'DE', 'IE', 'RO', 'CZ', 'CH', 'SK', 'HR', 'AT', 'IT', 'LU', 'AL',
-                   'LV', 'FI', 'MD', 'South America', 'CO', 'CL', 'AR', 'PE', 'BR',
-                   'Oceania', 'NZ', 'AU']
+nations_dict = {'India': 'IN', 'Taiwan': 'TW', 'Korea': 'KR', 'Israel': 'IL',
+                   'Japan':'JP', 'Singapore':'SG', 'Turkey':'TR', 'Malasia':'MY',
+                   'United Arab Emirates':'AE', 'North America':'North America',
+                   'Mexico':'MX', 'Canada':'CA', 'United States':'US', 'Costa Rica':'CR',
+                   'Europe':'Europe', 'United Kingdom':'UK', 'Denmark':'DK', 'Spain':'ES',
+                   'Serbia':'RS', 'Iceland':'IS', 'Portugal':'PT', 'Belgium':'BE', 'Norway':'NO',
+                   'Hungary':'HU', 'Bulgaria':'BG', 'Slovenia':'SI', 'Greece':'GR', 'France':'FR', 'Sweden':'SE',
+                   'Netherlands':'NL', 'Poland':'PL', 'Germany':'DE', 'Ireland':'IE', 'Romania':'RO', 'Czech Republic':'CZ',
+                   'Switzerland':'CH', 'Slovakia':'SK', 'Croatia':'HR', 'Austria':'AT', 'Italy':'IT', 'Luxembourg':'LU',
+                   'Albania':'AL', 'Latvia':'LV', 'Finland':'FI', 'Macedonia':'MD', 'South America':'South America', 'Colombia':'CO',
+                   'Chile':'CL', 'Argentina':'AR', 'Peru':'PE', 'Brazil':'BR', 'Oceania':'Oceania', 'New Zealand':'NZ', 'Australia':'AU'}
 
 cities = ['Taipei', 'Seoul', 'Tel Aviv', 'Tokyo', 'Singapore', 'Istanbul',
           'Kuala-Lumpur', 'Dubai', 'North America', 'Guadalajara', 'Vancouver',
