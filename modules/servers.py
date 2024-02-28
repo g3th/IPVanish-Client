@@ -22,7 +22,7 @@ nations_dict = {'India': 'IN', 'Taiwan': 'TW', 'Korea': 'KR', 'Israel': 'IL',
                    'Albania':'AL', 'Latvia':'LV', 'Finland':'FI', 'Macedonia':'MD', 'South America':'South America', 'Colombia':'CO',
                    'Chile':'CL', 'Argentina':'AR', 'Peru':'PE', 'Brazil':'BR', 'Oceania':'Oceania', 'New Zealand':'NZ', 'Australia':'AU'}
 
-cities = ['Taipei', 'Seoul', 'Tel Aviv', 'Tokyo', 'Singapore', 'Istanbul',
+cities = ['Mumbai','Taipei', 'Seoul', 'Tel Aviv', 'Tokyo', 'Singapore', 'Istanbul',
           'Kuala-Lumpur', 'Dubai', 'North America', 'Guadalajara', 'Vancouver',
           'Montreal', 'Toronto', 'Houston', 'New Orleans', 'Charlotte', 'Atlanta',
           'Ashburn', 'Boston', 'Dallas', 'Miami', 'Los Angeles', 'Chicago', 'San Jose',
@@ -34,4 +34,13 @@ cities = ['Taipei', 'Seoul', 'Tel Aviv', 'Tokyo', 'Singapore', 'Istanbul',
           'Zagreb', 'Vienna', 'Milan', 'Luxembourg', 'Tirana', 'Riga', 'Helsinki', 'Chisinau',
           'South America', 'Bogota', 'Santiago', 'Buenos Aires', 'Lima', 'Sao Paulo', 'Oceania',
           'Auckland', 'Perth', 'Brisbane', 'Sydney', 'Adelaide', 'Melbourne']
+
+n_america = ['Montreal', 'Toronto', 'Vancouver', 'San Jose', 'Guadalajara', 'Ashburn', 'Atlanta', 'Boston', 'Charlotte', 'Chicago',
+             'Cincinnati', 'Dallas', 'Denver', 'Detroit', 'Flagstaff', 'Houston', 'Las Vegas', 'Los Angeles', 'Miami', 'Minneapolis', 'New Orleans',
+             'New York', 'Phoenix', 'San Jose', 'Seattle', 'St. Louis']
+
+europe = ['Tirana', 'Vienna', 'Brussels', 'Sofia', 'Zagreb', 'Prague', 'Copenhagen',
+          'Tallinn', 'Helsinki', 'Bordeaux', 'Marseille', 'Paris', 'Frankfurt', 'Athens',
+          'Budapest', 'Reykjavik', 'Dublin', 'Milan', 'Riga', 'Luxembourg', 'Chisinau',
+          'Amsterdam', 'Oslo', 'Warsaw', 'Lisbon', 'Bucharest', 'Belgrade', 'Bratislava']
 

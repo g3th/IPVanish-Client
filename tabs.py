@@ -41,12 +41,12 @@ class TabsLists:
         self.tab_three = ttk.Frame(self.notebook)
         self.notebook.add(self.tab_three, text='Credentials')
         config.ConfigsTab(root, self.notebook)
-        nations = StringVar(value=n)
-        self.list_of_nations = Listbox(self.tab_one, listvariable=nations, height=18)
+        nations_list = StringVar(value=n)
+        self.list_of_nations = Listbox(self.tab_one, listvariable=nations_list, height=18)
         self.list_of_nations.grid(column=3, row=3, sticky='n')
         self.list_of_nations.place(x=60, y=20)
-        cities = StringVar(value=c)
-        self.list_of_cities = Listbox(self.tab_two, listvariable=cities, height=18)
+        cities_list = StringVar(value=c)
+        self.list_of_cities = Listbox(self.tab_two, listvariable=cities_list, height=18)
         self.list_of_cities.grid(column=3, row=3, sticky='n')
         self.list_of_cities.place(x=60, y=20)
         self.notebook.pack(expand=True, fill='both', padx=30, pady=100)
@@ -127,37 +127,38 @@ class TabsLists:
         self.displayed_password.destroy()
 
     def buttonEvent(self):
-        selection = None
+        selected = self.notebook.index('current')
         if not self.credentials:
             self.error("Please Enter\nAccount Credentials", "180","60")
         else:
             # try:
-            selected = self.notebook.index('current')
             match selected:
                 case 0:
                     selection_index = self.list_of_nations.curselection()
                     self.selection = self.list_of_nations.get(selection_index)
                 case 1:
-                    selection_index = self.list_of_nations.curselection()
-                    self.selection = self.list_of_nations.get(selection_index)
+                    selection_index = self.list_of_cities.curselection()
+                    self.selection = self.list_of_cities.get(selection_index)
             if self.sudo_password is None:
                 self.error("Please Enter\nSudo Password", "150","60")
             else:
                 self.connect = EstablishConnection(self.sudo_password)
                 self.create_connection()
                 self.button_label['text'] = 'Connected to ' + self.selection + ' server\n'
-                self.button_label.place(x=80, y=555)
+                self.button_label.place(x=80, y=550)
             # except Exception as e:
             #     print(e)
 
     def create_connection(self):
-        create_ovpn_configuration = ParseConfigurationFile()
-        create_ovpn_configuration.start(self.selection)
+        edit_config_file = ParseConfigurationFile()
+        edit_config_file.start(self.selection, self.notebook.index('current'))
         self.connect.start_connection()
         time.sleep(2)
         self.connect.set_options()
         print(self.pid)
         self.connect_button.config(text="Disconnect", command=self.disconnect)
+        self.button_label['text'] = "Disconnected"
+        self.button_label.place(x=80, y=550)
 
     def connect_button_event_as_thread(self):
         threading.Thread(target=self.buttonEvent, args=()).start()
