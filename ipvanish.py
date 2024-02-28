@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+import platform
 from tabs import TabsLists
 from pathlib import Path
 from tkinter import *
@@ -35,6 +35,10 @@ class IPVanishGUI:
 
 
 if __name__ == '__main__':
+    if platform.system() != "Linux":
+        print("IpVanish Client is designed to run on Linux Distributions Only.")
+        print("Please download the official IpVanish Windows Client instead.")
+        exit()
     IPVanish = IPVanishGUI('IPVanish Client')
     IPVanish.image(8, 20, 5, 5, 350, 80, NW)
     IPVanish.add_styles('TNotebook', 50)
