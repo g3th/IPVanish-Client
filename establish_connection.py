@@ -17,16 +17,18 @@ class EstablishConnection:
 
     def open_vpn_connection(self):
         connect = ['sudo', '-S', 'openvpn', '--config', self.configuration_files_path + "/conn.ovpn"]
+        disable_ipv6 = ['sudo', '-S', 'sysctl', 'net.ipv6.conf.all.disable_ipv6=1']
+        run_ipv6 = subprocess.Popen(disable_ipv6, shell=False, stdin=PIPE, encoding='utf-8')
         run = subprocess.Popen(connect, shell=False, stdin=PIPE, encoding='utf-8')
         with open("pid", 'w') as process_id:
             process_id.write(str(run.pid))
         process_id.close()
+        run_ipv6.communicate(input=self.sudo_password)
         run.communicate(input=self.sudo_password)
 
     def set_options(self):
         for interface in self.network_interfaces_list:
-            commands_as_list_of_lists = [['sudo', '-S', 'sysctl', 'net.ipv6.conf.all.disable_ipv6=1'],
-                                         ['sudo', '-S', 'resolvectl', 'default-route', interface, 'false'],
+            commands_as_list_of_lists = [['sudo', '-S', 'resolvectl', 'default-route', interface, 'false'],
                                          ['sudo', '-S', 'resolvectl', 'llmnr', interface, 'false'],
                                          ['sudo', '-S', 'resolvectl', 'mdns', interface, 'false'],
                                          ['sudo', '-S', 'resolvectl', 'dns', interface, self.ipvanish_dns[0],
@@ -56,3 +58,26 @@ class EstablishConnection:
                                          ['sudo', '-S', 'resolvectl', 'dns', interface, self.default_gateway]]
             for command in commands_as_list_of_lists:
                 self.launch_command(command)
+# sudo sysctl net.ipv6.conf.all.disable_ipv6=1
+# connect ovpn
+# options
+# Global
+#          Protocols: +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
+#   resolv.conf mode: foreign
+#
+# Link 2 (eth0)
+#     Current Scopes: none
+#          Protocols: +DefaultRoute +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
+#        DNS Servers: 192.168.0.1
+#
+# Link 12 (wlan0)
+#     Current Scopes: DNS LLMNR/IPv4 mDNS/IPv4
+#          Protocols: +DefaultRoute +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
+# Current DNS Server: 198.18.0.1
+#        DNS Servers: 198.18.0.1 198.18.0.2
+#
+# Link 16 (tun0)
+#     Current Scopes: DNS LLMNR/IPv4 mDNS/IPv4
+#          Protocols: +DefaultRoute +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
+# Current DNS Server: 198.18.0.1
+#        DNS Servers: 198.18.0.1 198.18.0.2

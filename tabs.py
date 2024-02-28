@@ -151,9 +151,9 @@ class TabsLists:
 
     def create_connection(self):
         edit_config_file = ParseConfigurationFile()
-        edit_config_file.start(self.selection, self.notebook.index('current'))
+        edit_config_file.start(self.selection)
         self.connect.start_connection()
-        time.sleep(2)
+        time.sleep(3)
         self.connect.set_options()
         print(self.pid)
         self.connect_button.config(text="Disconnect", command=self.disconnect)
