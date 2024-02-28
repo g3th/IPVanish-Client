@@ -13,14 +13,11 @@ class ParseConfigurationFile:
         self.result = nations_dict
         self.filelist = []
 
-    def start(self, selection, notebook_index):
-        if notebook_index == 1:
-            self.larger_area_check(selection)
-        else:
-            self.larger_area_check(selection)
-            for i in os.listdir(self.configuration_files_path):
-                if self.result[selection] in i:
-                    self.filelist.append(i)
+    def start(self, selection):
+        self.larger_area_check(selection)
+        for i in os.listdir(self.configuration_files_path):
+            if self.result[selection] in i:
+                self.filelist.append(i)
         length = len(self.filelist) - 1
         random_server_dir = self.filelist[randint(0, length)]
         original_configuration_file_lines = open(self.configuration_files_path + "/" + random_server_dir).readlines()
