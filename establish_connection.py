@@ -58,26 +58,3 @@ class EstablishConnection:
                                          ['sudo', '-S', 'resolvectl', 'dns', interface, self.default_gateway]]
             for command in commands_as_list_of_lists:
                 self.launch_command(command)
-# sudo sysctl net.ipv6.conf.all.disable_ipv6=1
-# connect ovpn
-# options
-# Global
-#          Protocols: +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
-#   resolv.conf mode: foreign
-#
-# Link 2 (eth0)
-#     Current Scopes: none
-#          Protocols: +DefaultRoute +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
-#        DNS Servers: 192.168.0.1
-#
-# Link 12 (wlan0)
-#     Current Scopes: DNS LLMNR/IPv4 mDNS/IPv4
-#          Protocols: +DefaultRoute +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
-# Current DNS Server: 198.18.0.1
-#        DNS Servers: 198.18.0.1 198.18.0.2
-#
-# Link 16 (tun0)
-#     Current Scopes: DNS LLMNR/IPv4 mDNS/IPv4
-#          Protocols: +DefaultRoute +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
-# Current DNS Server: 198.18.0.1
-#        DNS Servers: 198.18.0.1 198.18.0.2
