@@ -25,7 +25,7 @@ class TabsLists:
         self.current_interface = []
         self.user_name = None
         self.password = None
-        self.sudo_password = None
+        self.sudo_password = None # Set your password here if you don't want to enter it every time
         self.user_name_label = None
         self.password_label = None
         self.displayed_user_name = None
@@ -86,7 +86,7 @@ class TabsLists:
     def store_credentials(self):
         self.credentials = [self.user_name.get(), self.password.get()]
         if self.credentials == ['', '']:
-            self.error("Please Enter\nAccount Credentials")
+            self.error("Please Enter\nAccount Credentials", "200","200")
         else:
             for credential in self.credentials:
                 with open(self.configuration_files_path + "/credentials", 'a') as write_creds:
@@ -97,15 +97,15 @@ class TabsLists:
     def store_sudo_password(self):
         self.sudo_password = self.sudo_password_box.get()
         if self.sudo_password == "":
-            self.error("Please Enter\nSudo Password")
+            self.error("Please Enter\nSudo Password", "200","200")
         else:
             self.sudo_password_box.destroy()
             display_sudo_password = Label(self.tab_three, text="*" * len(self.sudo_password))
             display_sudo_password.place(x=55, y=220)
 
-    def error(self, message):
+    def error(self, message, x, y):
         error = Toplevel(self.notebook)
-        error.geometry("220x70")
+        error.geometry("{}x{}".format(x, y))
         error.resizable(False, False)
         error.title("Error")
         Label(error, font=("Arial", 13), text= message).place(x=14, y=8)
@@ -129,7 +129,7 @@ class TabsLists:
     def buttonEvent(self):
         selection = None
         if not self.credentials:
-            self.error("Please Enter\nAccount Credentials")
+            self.error("Please Enter\nAccount Credentials", "180","60")
         else:
             # try:
             selected = self.notebook.index('current')
@@ -141,7 +141,7 @@ class TabsLists:
                     selection_index = self.list_of_nations.curselection()
                     self.selection = self.list_of_nations.get(selection_index)
             if self.sudo_password is None:
-                self.error("Please Enter\nSudo Password")
+                self.error("Please Enter\nSudo Password", "150","60")
             else:
                 self.connect = EstablishConnection(self.sudo_password)
                 self.create_connection()
@@ -163,5 +163,5 @@ class TabsLists:
         threading.Thread(target=self.buttonEvent, args=()).start()
 
     def disconnect(self):
-        self.connect.disconnect(self.pid)
+        self.connect.disconnect()
         self.connect_button.config(text="Connect", command=self.connect_button_event_as_thread)

@@ -20,7 +20,11 @@ class EstablishConnection:
     def open_vpn_connection(self):
         connect = ['sudo', '-S', 'openvpn', '--config', self.configuration_files_path + "/conn.ovpn"]
         run = subprocess.Popen(connect, shell=False, stdin=PIPE, encoding='utf-8')
+        with open("pid", 'w') as process_id:
+            process_id.write(str(run.pid))
+        process_id.close()
         run.communicate(input=self.sudo_password)
+
 
     def set_options(self):
         for interface in self.network_interfaces_list:
@@ -45,8 +49,10 @@ class EstablishConnection:
         subprocess.Popen(command, shell=False,
                          stdin=PIPE, encoding='utf-8').communicate(input=self.sudo_password)
 
-    def disconnect(self, pid):
-        os.kill(pid, signal.SIGINT)
+    def disconnect(self):
+        pid = open("pid", 'r').readline()
+        os.kill(int(pid), signal.SIGINT)
+        os.remove("pid")
         for interface in self.network_interfaces_list:
             commands_as_list_of_lists = [['sudo', '-S', 'sysctl', 'net.ipv6.conf.all.disable_ipv6=0'],
                                          ['sudo', '-S', 'resolvectl', 'default-route', interface, 'true'],
