@@ -2,14 +2,12 @@ import signal
 import os
 import subprocess
 import threading
-from threading import Lock
 from pathlib import Path
 from subprocess import PIPE
 
 
 class EstablishConnection:
     def __init__(self, sudo_pass):
-        self.lock = Lock()
         self.network_interfaces_list = os.listdir("/sys/class/net")
         self.default_gateway = '192.168.0.1'
         self.ipvanish_dns = ['198.18.0.1', '198.18.0.2']
@@ -24,7 +22,6 @@ class EstablishConnection:
             process_id.write(str(run.pid))
         process_id.close()
         run.communicate(input=self.sudo_password)
-
 
     def set_options(self):
         for interface in self.network_interfaces_list:
