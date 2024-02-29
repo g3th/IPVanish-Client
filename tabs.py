@@ -154,7 +154,7 @@ class TabsLists:
         edit_config_file = ParseConfigurationFile()
         edit_config_file.start(self.selection, tab_index)
         self.connect.start_connection()
-        time.sleep(3)
+        time.sleep(5)
         self.connect.set_options()
         print(self.pid)
         self.connect_button.config(text="Disconnect", command=self.disconnect)
