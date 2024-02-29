@@ -13,7 +13,8 @@ class ParseConfigurationFile:
         self.result = nations_dict
         self.filelist = []
 
-    def start(self, selection, tab_index):
+    def start(self, sel, tab_index):
+        selection = sel
         self.larger_area_check(selection)
         match tab_index:
             case 0:
@@ -21,6 +22,7 @@ class ParseConfigurationFile:
                     if self.result[selection] in i:
                         self.filelist.append(i)
             case 1:
+                selection = sel.replace(" ", "-")
                 for i in os.listdir(self.configuration_files_path):
                     if selection in i:
                         self.filelist.append(i)
@@ -46,8 +48,11 @@ class ParseConfigurationFile:
                 for j in n_america:
                     if j in i:
                         self.filelist.append(i)
+            print(selection)
+            exit()
         if selection == "Europe":
             for i in os.listdir(self.configuration_files_path):
                 for j in europe:
                     if j in i:
                         self.filelist.append(i)
+

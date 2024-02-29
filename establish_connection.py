@@ -12,6 +12,7 @@ class EstablishConnection:
         self.default_gateway = '192.168.0.1'
         self.ipvanish_dns = ['198.18.0.1', '198.18.0.2']
         self.sudo_password = sudo_pass
+        self.main_directory = str(Path(__file__).parent)
         self.configuration_files_path = str(Path(__file__).parent) + "/configs"
         self.pid = None
 
@@ -20,11 +21,11 @@ class EstablishConnection:
         disable_ipv6 = ['sudo', '-S', 'sysctl', 'net.ipv6.conf.all.disable_ipv6=1']
         run_ipv6 = subprocess.Popen(disable_ipv6, shell=False, stdin=PIPE, encoding='utf-8')
         run = subprocess.Popen(connect, shell=False, stdin=PIPE, encoding='utf-8')
-        with open("pid", 'w') as process_id:
+        with open(self.main_directory + "/pid", 'w') as process_id:
             process_id.write(str(run.pid))
         process_id.close()
-        run_ipv6.communicate(input=self.sudo_password)
-        run.communicate(input=self.sudo_password)
+        run_ipv6.communicate(input=self.main_directory)
+        run.communicate(input=self.main_directory)
 
     def set_options(self):
         for interface in self.network_interfaces_list:
@@ -46,12 +47,12 @@ class EstablishConnection:
 
     def launch_command(self, command):
         subprocess.Popen(command, shell=False,
-                         stdin=PIPE, encoding='utf-8').communicate(input=self.sudo_password)
+                         stdin=PIPE, encoding='utf-8').communicate(input=self.main_directory)
 
     def disconnect(self):
-        pid = open("pid", 'r').readline()
+        pid = open(self.main_directory + "/pid", 'r').readline()
         os.kill(int(pid), signal.SIGINT)
-        os.remove("pid")
+        os.remove(self.main_directory + "/pid")
         for interface in self.network_interfaces_list:
             commands_as_list_of_lists = [['sudo', '-S', 'sysctl', 'net.ipv6.conf.all.disable_ipv6=0'],
                                          ['sudo', '-S', 'resolvectl', 'default-route', interface, 'true'],

@@ -23,11 +23,11 @@ nations_dict = {'India': 'IN', 'Taiwan': 'TW', 'Korea': 'KR', 'Israel': 'IL',
                    'Chile':'CL', 'Argentina':'AR', 'Peru':'PE', 'Brazil':'BR', 'Oceania':'Oceania', 'New Zealand':'NZ', 'Australia':'AU'}
 
 cities = ['Mumbai','Taipei', 'Seoul', 'Tel Aviv', 'Tokyo', 'Singapore', 'Istanbul',
-          'Kuala-Lumpur', 'Dubai', 'North America', 'Guadalajara', 'Vancouver',
+          'Kuala Lumpur', 'Dubai', 'North America', 'Guadalajara', 'Vancouver',
           'Montreal', 'Toronto', 'Houston', 'New Orleans', 'Charlotte', 'Atlanta',
           'Ashburn', 'Boston', 'Dallas', 'Miami', 'Los Angeles', 'Chicago', 'San Jose',
           'New York', 'Seattle', 'Denver', 'Las Vegas', 'Phoenix', 'Cincinnati', 'San Jose',
-          'Costa_Rica', 'Manchester', 'London', 'Glasgow', 'Birmingham', 'Copenhagen', 'Valencia',
+          'Costa Rica', 'Manchester', 'London', 'Glasgow', 'Birmingham', 'Copenhagen', 'Valencia',
           'Madrid', 'Belgrade', 'Reykjavik', 'Lisbon', 'Brussels', 'Oslo', 'Budapest', 'Sofia',
           'Ljubljana', 'Athens', 'Bordeaux', 'Paris', 'Marseille', 'Stockholm', 'Amsterdam',
           'Warsaw', 'Frankfurt', 'Dublin', 'Bucharest', 'Prague', 'Zurich', 'Bratislava',
