@@ -14,23 +14,16 @@ from parse_ovpn_configuration_file import ParseConfigurationFile
 class TabsLists:
 
     def __init__(self, root):
-        self.pid = None
-        self.connect = None
         self.selection = None
-        self.process_pid = None
-        self.openvpn_command = None
-        self.ipvanish_dns = ['198.18.0.1', '198.18.0.2']
-        self.default_gateway = '192.168.0.1'
-        self.loopback = '192.168.0.1'
-        self.current_interface = []
         self.user_name = None
         self.password = None
         self.sudo_password = None # Set your password here if you don't want to enter it every time
         self.user_name_label = None
         self.password_label = None
+        self.sudo_password_box = None
+        self.sudo_password_box_label = None
         self.displayed_user_name = None
         self.displayed_password = None
-        self.random_server = None
         self.configuration_files_path = str(Path(__file__).parent) + '/configs'
         self.credentials = []
         self.notebook = ttk.Notebook(root)
