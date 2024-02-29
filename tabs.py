@@ -150,8 +150,9 @@ class TabsLists:
             #     print(e)
 
     def create_connection(self):
+        tab_index = self.notebook.index('current')
         edit_config_file = ParseConfigurationFile()
-        edit_config_file.start(self.selection)
+        edit_config_file.start(self.selection, tab_index)
         self.connect.start_connection()
         time.sleep(3)
         self.connect.set_options()
