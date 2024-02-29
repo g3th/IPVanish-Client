@@ -52,7 +52,7 @@ class TabsLists:
         self.store_credentials_button.place(x=66, y=151)
         self.connect_button.place(x=133, y=515)
         self.button_label.place(x=121, y=555)
-
+        # Would be "init {}" block
         if 'credentials' in os.listdir(self.configuration_files_path):
             with open(self.configuration_files_path + '/credentials', 'r') as existing_credentials:
                 for credential in existing_credentials.readlines():
